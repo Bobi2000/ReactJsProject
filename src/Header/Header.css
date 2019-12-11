@@ -1,0 +1,60 @@
+.apollo-header {
+    text-align: center;
+    padding-top: 100px;
+    margin: 0px auto 40px;
+    position: relative;
+}
+
+.apollo-header h2 {
+    font-size: 32px;
+}
+
+.apollo-header h2 a {
+    color: #d0cecb;
+}
+
+a {
+    color: #94724D;
+    text-decoration: none;
+}
+
+.apollo-header hr {
+    margin: 10px 0px;
+}
+
+hr {
+    color: white;
+    border: 1 solid !important;
+    margin: 10px 0px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-position: -993px -69px;
+    width: 125px;
+    height: 3px;
+}
+/*
+background-image: url(/images/sprite-master-03a1733….png);
+*/
+
+body a, body a:visited, .apollo-header .controls a, .apollo-header .controls {
+    color: #b49a5d;
+}
+
+.apollo-header .controls {
+    margin-top: 10px;
+    font-family: "Constantia","Palatino","Georgia",serif;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #94724D;
+}
+
+.apollo-header .controls a.active {
+    color: #CAB5A2;
+    text-decoration: underline;
+}
+
+.apollo-header .controls a {
+    color: #94724D;
+    padding-left: 15px;
+}

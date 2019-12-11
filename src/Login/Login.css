@@ -1,0 +1,164 @@
+.discussions {
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.disscussion-list {
+    border: 1px solid #775c31;
+}
+
+.box.main {
+    background-color: rgba(12, 27, 36, .95);
+}
+
+.column.main {
+    float: right;
+    width: 100%;
+    margin-right: -260px;
+}
+
+.row.columns {
+    padding-right: 280px;
+}
+
+.column.side {
+    width: 260px;
+    padding-right: 10px;
+}
+
+.column {
+    float: left;
+}
+
+.side .new-discussion-box.box {
+    padding: 0;
+}
+
+.side .new-discussion-box.box .create-discussion-cta {
+    outline: 1px solid #775c31;
+}
+
+body a, body a:visited, .apollo-header .controls a, .apollo-header .controls {
+    color: #b49a5d;
+}
+
+.button, body a.button, #uploader .plupload_button, .riot-athena .btn, #cboxClose, #board-details button {
+    display: block;
+    padding: 10px 0px;
+    background-color: #553621;
+    font-family: "Constantia","Palatino","Georgia",serif;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    color: #CAB5A2;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: 1px solid black;
+    outline: 1px solid #553621;
+    text-align: center;
+}
+
+.side .box {
+    border: 1px solid #775c31;
+    border-radius: 3px;
+}
+
+div.search-icon {
+    float: left;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-image: url(/images/sprite-master-03a1733….png);
+    background-position: -389px -110px;
+    width: 26px;
+    height: 26px;
+}
+
+.search-form input {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    width: 195px;
+    display: block;
+    color: #94724D;
+    font-size: 12px;
+    background-color: transparent;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.search-form {
+    padding: 6px 10px;
+}
+
+.box {
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+
+.column.side > * {
+    background-color: #16181C;
+}
+
+#red-tracker, .side .box, #discussion, #discussions .discussion-list, #board-sidebar-image, .box.show-more, .report-widget, #comments>.paging {
+    border: 1px solid #775c31;
+    border-radius: 3px;
+}
+
+.side .box.collapseable .toggle {
+    background-color: rgba(255,255,255,0.1);
+    border-bottom: 1px solid #31302B;
+    color: #CAB5A2;
+    text-align: center;
+    cursor: default;
+}
+
+.box.collapseable .toggle {
+    background-color: rgba(255,255,255,0.1);
+    color: #6DC0CD;
+    margin: -10px -10px 0px -10px;
+    padding: 15px 10px;
+    font-family: "Constantia","Palatino","Georgia",serif;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.box.collapseable .content {
+    margin: 10px 0px 15px;
+}
+
+#navigation-container .markdown-nav, .board-navigation .markdown-nav {
+    font-family: "Beaufort for LOL",sans-serif;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+body .markdown-content p:first-child {
+    margin-top: 0px;
+}
+
+body .markdown-content p {
+    margin: 1em 0px;
+}
+
+#navigation-container .markdown-nav, .board-navigation .markdown-nav {
+    font-family: "Beaufort for LOL",sans-serif;
+}
+
+#navigation-container .markdown-nav, .board-navigation .markdown-nav {
+    font-size: 16px;
+}
+
+#markdown-nav {
+    color: #c2c1c0;
+}
+
+body .markdown-content {
+    padding: 0px;
+    font-size: 15px;
+    line-height: 1.5em;
+}

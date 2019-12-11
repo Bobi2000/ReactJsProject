@@ -1,0 +1,156 @@
+.discussion-list-item {
+    font-size: 12px;
+    height: 62px;
+    cursor: pointer;
+}
+
+.row {
+    clear: both;
+    padding: 0px 20px;
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+.discussion-list-item .voting {
+    width: 45px;
+    padding-right: 1px;
+}
+
+body.apollo .small .apollo.voting {
+    padding: 0px;
+}
+
+body.apollo .apollo.voting ul.voting li {
+    list-style-type: none;
+    height: auto;
+}
+
+body.apollo .apollo.voting ul.voting {
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    text-align: center;
+    width: 45px;
+    color: #CAB5A2;
+    font-size: 10px;
+}
+
+body.apollo .small .apollo.voting ul.voting {
+    margin-left: -1px;
+    margin-top: -3px;
+}
+
+.apollo .voting {
+    float: left;
+    list-style-type: none;
+    margin-left: 10px;
+    margin-top: -3px;
+    width: 19px;
+}
+
+.apollo ul, .apollo ul li {
+    list-style-position: inside;
+}
+
+.apollo blockquote, .apollo dd, .apollo div, .apollo dl, .apollo dt, .apollo fieldset, .apollo form, .apollo h1, .apollo h2, .apollo h3, .apollo h4, .apollo h5, .apollo h6, .apollo li, .apollo ol, .apollo p, .apollo pre, .apollo td, .apollo textarea, .apollo th, .apollo ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.green {
+    color: #22b722;
+}
+
+.votes {
+    color: #CAB5A2;
+}
+
+.apollo .voting li {
+    min-width: 1pc;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 9px;
+    padding-top: 2px;
+}
+
+body.apollo .apollo.voting ul.voting {
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    text-align: center;
+    width: 45px;
+    color: #CAB5A2;
+    font-size: 10px;
+}
+
+.discussion-list-item .title .discussion-title {
+    max-width: 800px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.2em;
+    margin-bottom: 5px;
+}
+
+.discussion-list-item .title {
+    color: #CAB5A2;
+}
+
+.discussion-list-item .title .discussion-title a:visited, #red-tracker .redtracker-list-item .row .title-box a.title-link:visited {
+    color: #817d6e;
+}
+
+.discussion-list-item .num-comments {
+    width: 75px;
+}
+
+.discussion-list-item .commented .number, .discussion-list-item .age .number, .discussion-list-item .num-comments .number, .discussion-list-item .view-counts .number {
+    display: block;
+    font-size: 16px;
+    min-height: 16px;
+    color: #CAB5A2;
+    margin-bottom: 2px;
+}
+
+.discussion-list-item .commented, .discussion-list-item .age, .discussion-list-item .num-comments, .discussion-list-item .view-counts {
+    text-align: center;
+    padding-right: .5em;
+    font-size: 10px;
+}
+
+body .byline, .nested-comment .body-container .body blockquote .markdown-meta-quoted {
+    color: #898577!important;
+}
+
+.discussion-list-item .num-comments {
+    width: 75px;
+}
+
+.discussion-list-item .commented {
+    width: auto;
+}
+
+.discussion-list-item {
+    font-size: 12px;
+    height: 62px;
+    cursor: pointer;
+}
+.right {
+    float: right;
+}
+
+.discussion-list-item td, #red-tracker .redtracker-list-item .row, #red-tracker .redtracker-list-item .body {
+    border-bottom: 1px solid #2b363b;
+}
+
+.discussions table {
+    width: 100%;
+    vertical-align: center;
+    position: relative;
+    z-index: 10;
+    border-spacing: 0px;
+    border-collapse: separate;
+}

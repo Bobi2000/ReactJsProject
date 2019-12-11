@@ -1,0 +1,47 @@
+import React from 'react';
+import './Login.css';
+
+import withForm from '../shared/hocs/withForm.jsx';
+import userService from '../services/user-service.js';
+
+class Login extends React.Component {
+
+    usernameOnChangeHandler = this.props.controlChangeHandlerFactory('username');
+    passwordOnChangeHandler = this.props.controlChangeHandlerFactory('password');
+
+    submitHandler = () => {
+        const errors = this.props.getFormErrorState();
+        if (!!errors) { return; }
+        const data = this.props.getFormState();
+        this.props.login(this.props.history, data);
+    }
+
+    render() {
+    return <div className="content"> 
+                    <div className="row columns"> 
+                        <div className="column main"> 
+                            <div className="discussions disscussion-list box main">
+
+                            <form id="submission-form" className="custom" method="post">
+                            <label for="Username" className="title-field">Username</label>
+                            <input type="text" name="title" required="required" maxlength="100" className="title title-field box submit" onChange={this.usernameOnChangeHandler}></input>
+
+                            <label for="password" className="title-field">Password</label>
+                            <input type="password" name="title" required="required" maxlength="100" className="title title-field box submit" onChange={this.passwordOnChangeHandler}></input>
+
+                            <button type="button" className="button" value="Submit" onClick={this.submitHandler}>
+                                <div className="loading-indicator">
+                                    <span className="fist"></span>
+                                    <span className="halo spinning"></span>
+                                </div>
+                                <span className="submitMsg">Login</span>
+                            </button>
+                        </form>
+                            </div>
+                        </div>
+                    </div>
+                 </div>;
+    };
+}
+
+export default withForm(Login, {username: '', password: ''});
