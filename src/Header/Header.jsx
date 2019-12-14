@@ -1,24 +1,22 @@
 import React from 'react';
 import './Header.css';
+import Sort from './Sort.jsx';
 
-function Header({children, isBoard}) {
+function Header({ children, sortedBy }) {
 
     return <div className="apollo-header">
         <h2>
             <a href="/">
-            <span className="text">{children}</span>
+                <span className="text">{children}</span>
             </a>
             <hr />
             <div className="controls">
-                    <div className="sorting">
-                    Sort by:
-                    <a href="?sort_type=hot" className="active">Hot</a>
-                    <a href="?sort_type=recent">New</a>
-                    <a href="?sort_type=recently_replied">Recent</a>
+                <div className="sorting">
+                    <Sort sortedBy={sortedBy} />
                 </div>
             </div>
         </h2>
-        </div>;
+    </div>;
 }
 
-export default Header; 
+export default Header;

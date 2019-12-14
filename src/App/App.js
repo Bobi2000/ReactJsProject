@@ -9,8 +9,10 @@ import Header from '../Header/Header.jsx';
 import Login from '../Login/Login.jsx';
 import Register from '../Register/Register.jsx';
 import Logout from '../Logout/Logout.jsx';
+import Discussion from '../Discussion/Discussion.jsx';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import userService from '../services/user-service.js';
+import Store from '../Store/Store.jsx';
 
 function render(title, Cmp, otherProps) {
   return function (props) {
@@ -27,7 +29,7 @@ function parseCookie() {
 }
 
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props);
 
@@ -37,60 +39,70 @@ class App extends React.Component {
   }
 
   logout = (history) => {
-        userService.logout().then(() => {
-           
-            this.setState({ isLogged: false });
-            history.push('/');
-            return null;
-        });
+    userService.logout().then(() => {
+
+      this.setState({ isLogged: false });
+      history.push('/');
+      return null;
+    });
   }
 
   login = (history, data) => {
-    userService.login(data).then(() => {
+    return userService.login(data).then(() => {
       this.setState({ isLogged: true });
       history.push('/');
       return null;
-  });
+    });
   }
 
   render() {
     const { isLogged } = this.state;
     return (
       <BrowserRouter>
-   
-        <div className="App">
-        <div className="content">
-        
-          <Switch>
+        <Store>
+        <Navigation isLogged={isLogged} />
+          <div className="App">
+            <div className="content">
 
-            <Route path="/" exact>
-              <Header isBoard={true}>Boards</Header>
-              <Board limit={3} />
-            </Route>
+              <Switch>
 
-            <Route path="/create-post">
-              <Header>Start a New Discussion</Header>
-              <CreatePost />
-            </Route>
+                <Route path="/" exact>
+                  <Header sortedBy="new">Boards</Header>
+                  <Board limit={10} />
+                </Route>
 
-            <Route path="/login" render={render('Login', Login, { isLogged, login: this.login})} />
-            <Route path="/register" render={render('Register', Register, {isLogged})}/>
-            <Route path="/logout" render={render('Register', Logout, {isLogged, logout: this.logout})}/>
-             
-            <Route path="*">
-              <Header isBoard={false}>404</Header>
-            </Route>
+                <Route path="/champions" exact><Header sortedBy="new">Boards</Header><Board limit={10} /></Route>
+                <Route path="/creation-concepts" exact><Header sortedBy="new">Boards</Header><Board limit={10} /></Route>
+                <Route path="/off-topic" exact><Header sortedBy="new">Boards</Header><Board limit={10} /></Route>
+                <Route path="/streams-videos" exact><Header sortedBy="new">Boards</Header><Board limit={10} /></Route>
 
-        </Switch>
+                {isLogged && <Route path="/create-post" render={render('Start A New Discussion', CreatePost, { isLogged })} />}
 
-        <Boards isLogged={isLogged} />
-        
-      </div>
-    </div>
-    <Navigation  isLogged={isLogged}/>
-    </BrowserRouter>
-  );
-}
+                <Route exact path="/login" render={render('Login', Login, { isLogged, login: this.login })} />
+                <Route exact path="/register" render={render('Register', Register, { isLogged })} />
+                <Route exact path="/logout" render={render('Register', Logout, { isLogged, logout: this.logout })} />
+
+                <Route path="/discussion/:id">
+                  <Header>Discussion</Header>
+                  <Discussion />
+                </Route>
+
+
+                <Route path="*">
+                  <Header>404</Header>
+                </Route>
+
+              </Switch>
+
+              <Boards isLogged={isLogged} />
+
+            </div>
+          </div>
+          
+        </Store>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
@@ -120,4 +132,11 @@ export default App;
 <Header isBoard={false}>Login</Header>
 <Login />
 </Route>
-*/
+
+
+{isLogged && <Route path="/create-post">
+                <Header>Start a New Discussion</Header>
+                <CreatePost />
+              </Route>}
+
+              */

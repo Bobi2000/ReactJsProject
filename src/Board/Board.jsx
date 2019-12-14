@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Board.css';
 import Post from './Post/Post.jsx';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Boards from '../Boards/Boards';
 import postService from '../services/post-service';
+import { withRouter } from "react-router";
 
 class Board extends React.Component {
     state = {
@@ -13,46 +12,57 @@ class Board extends React.Component {
     textInput = null;
 
     componentDidMount() {
-        postService.load(null, this.props.limit).then(posts => {
-            this.setState({ posts });
-        });
+        const sort = window.location.href.split('/').splice(-1)[0];
+        
+        if (sort == null) {
+            postService.load(null, 5, null).then(posts => {
+                this.setState({ posts });
+            });
+        }
+        else {
+            postService.load(sort).then(posts => {
+                this.setState({ posts });
+            });
+        }
+
+        
     }
 
     render() {
         const { posts } = this.state;
 
-        if(posts == null)
-        {
-            return <div className="content"> 
-                    <div className="row columns"> 
-                        <div className="column main"> 
-                            <div className="discussions disscussion-list box main">
-                                <table>
-                                    <tbody>
-                                        <Post votes = "---" username="---" time = "---" tag="---" comments="---" views="---">---</Post>
-                                    </tbody>
-                                </table>
-                            </div>
+        console.log( {posts} );
+
+        if (posts == null) {
+            return <div className="content">
+                <div className="row columns">
+                    <div className="column main">
+                        <div className="discussions disscussion-list box main">
+                            <table>
+                                <tbody>
+                                    <Post votes="---" username="---" time="---" tag="---" comments="---" views="---">---</Post>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                 </div>;
+                </div>
+            </div>;
         }
 
-        return <div className="content"> 
-    <div className="row columns"> 
-            <div className="column main"> 
-                <div className="discussions disscussion-list box main">
-                    <table>
-                        <tbody>
-                            {posts.map((post) => 
-                                <Post votes = "100" username="shefasf" time = "1" tag="champion" comments="1" views="5">EVENTS</Post>)}
-                                <Post votes = "---" username="---" time = "---" tag="---" comments="---" views="---">---</Post>
-                        </tbody>
-                    </table>
+        return <div className="content">
+            <div className="row columns">
+                <div className="column main">
+                    <div className="discussions disscussion-list box main">
+                        <table>
+                            <tbody>
+                                {posts.map((post) =>
+                                    <Post key={post._id} _id={post._id} votes={post.vote} username={post.author.username} img={post.link} time="--" tag={post.tag} comments="--" views={post.views} description={post.description}>{post.title}</Post>)}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>;
+        </div>;
     }
 }
 
@@ -60,31 +70,5 @@ Board.propTypes = {
     limit: PropTypes.number
 }
 
-export default Board;
+export default withRouter(Board);
 
-/*
-function Board() {
-    return <div className="content"> 
-    <div className="row columns"> 
-            <div className="column main"> 
-                <div className="discussions disscussion-list box main">
-                    <table>
-                        <tbody>
-                            <Post votes = "100" username="shefasf" time = "1" tag="champion" comments="1" views="5">EVENTS</Post>
-                            <Post votes = "102" username="murzel4o" time= "1" tag="champion" comments="2" views="100">Clash</Post>
-                            <Post votes = "105" username="renekton" time = "1" tag="champion" comments="3" views="333">Shhit game</Post>
-                            <Post votes = "110" username="yasou" time = "1" tag="champion" comments="3" views="666">whataever</Post>
-                            <Post votes = "130" username="nasus" time = "1" tag="champion" comments="3" views="333">asking</Post>
-                            <Post votes = "170" username="whatever" time = "1" tag="champion" comments="3" views="333">map</Post>
-                            <Post votes = "190" username="lul" time = "1" tag="champion" comments="3" views="333">sm</Post>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>;
-}
-
-
-export default Board; 
-*/

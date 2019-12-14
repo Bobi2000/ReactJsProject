@@ -154,3 +154,19 @@ body .byline, .nested-comment .body-container .body blockquote .markdown-meta-qu
     border-spacing: 0px;
     border-collapse: separate;
 }
+
+.thumbnail {
+    width: 104px;
+    line-height: 1px;
+    padding: 4px 10px 1px 0px;
+}
+
+.imgScale {
+    width: 96px;
+    height: 54px;
+}
+
+.tdCommented {
+    width: 40px;
+    height: 62px;
+}
